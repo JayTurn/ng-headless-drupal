@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base href="/">
+    <title></title>
+    <meta property="og:title" content="">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="styles/main.styles.css">
+  </head>
+  <body>
+    <div class="main" ng-controller="MainCtrl">
+      <div class="header" ng-include="'partials/navigation/header'"></div>
+      <div class="content" data-ng-view=""></div>
+      <div class="footer" ng-include="'partials/navigation/footer'"></div>
+    </div>
+
+    <script src="bower_components/headjs-notify/src/load.js"></script>
+    <script src="build/boot.js"></script>
+</body>
+</html>
