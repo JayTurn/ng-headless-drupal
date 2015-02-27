@@ -13,20 +13,20 @@ define(['angular', 'scripts/app'], function(angular, app) {
     // Define the route handling.
     $routeProvider
       //.when('/login', {
-        //templateUrl: 'partials/login',
+        //templateUrl: 'base/login',
         //controller: 'LoginCtrl'
       //})
       //.when('/:pagename', {
-        //templateUrl: 'partials/page',
+        //templateUrl: 'base/page',
         //controller: 'PageCtrl'
       //})
       //.when('/admin/pages', {
-        //templateUrl: 'partials/main',
+        //templateUrl: 'base/admin',
         //controller: 'AdminPagesCtrl'
       //})
       .when('/', {
-        templateUrl: 'partials/page',
-        controller: 'PageCtrl'
+        templateUrl: 'base/page',
+        controller: 'PageController'
       })
       .otherwise({
         redirectTo: '/'

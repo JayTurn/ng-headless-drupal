@@ -1,7 +1,11 @@
 /**
  * Defines the services to be attached to the headlessDrupal.services.
+ *
+ * Using a ./ file path looks relative to the module definition. If files aren't
+ * stored directly in the same foler, we need to use a full path, relative to
+ * the /app folder.
  */
 define([
-  '../modules/exampleModule/services/example.js'
+  'scripts/custom/modules/exampleModule/services/example.js'
 ], function () {});
 
