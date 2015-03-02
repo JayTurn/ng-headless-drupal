@@ -6,6 +6,7 @@
  * the /app folder.
  */
 define([
-  'scripts/custom/modules/exampleModule/controllers/example.js'
+  'scripts/custom/modules/exampleModule/controllers/example.js',
+  './mainExtend'
 ], function () {});
 

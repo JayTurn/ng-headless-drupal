@@ -10,9 +10,8 @@
 
 define(['./module'], function(baseServices) {
   'use strict';
-  baseServices.factory('HdExampleFactory', function ($scope) {
+  baseServices.factory('HdExampleFactory', function () {
     console.log('baseService Factory');
-    console.log($scope);
     return {
       exampleMethod: function () {
         console.log('Example Method');

@@ -16,9 +16,9 @@
   </head>
   <body>
     <div class="main" ng-controller="MainController">
-      <!--<div class="header" ng-include="'partials/navigation/header'"></div>-->
+      <div class="header" ng-include="'partials/navigation/header'"></div>
       <div class="content" data-ng-view=""></div>
-      <!--<div class="footer" ng-include="'partials/navigation/footer'"></div>-->
+      <div class="footer" ng-include="'partials/navigation/footer'"></div>
     </div>
 
     <script src="bower_components/headjs-notify/src/load.js"></script>

@@ -25,7 +25,7 @@ define(['angular', 'scripts/app'], function(angular, app) {
         //controller: 'AdminPagesCtrl'
       //})
       .when('/', {
-        templateUrl: 'base/page',
+        templateUrl: 'views/base/page',
         controller: 'PageController'
       })
       .otherwise({

@@ -2,5 +2,7 @@
  * Defines the controllers to be attached to the headlessDrupal.baseControllers.
  */
 define([
-  './example'
+  './example',
+  './main',
+  './page'
 ], function () {});

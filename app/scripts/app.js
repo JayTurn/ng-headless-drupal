@@ -18,7 +18,7 @@ define([
   'ngRoute'
 ], function(angular, controllers, directives, services, config) {
   'use strict';
-  return angular.module('wiggedy', [
+  return angular.module('headlessDrupal', [
     'headlessDrupal.baseControllers',
     'headlessDrupal.baseDirectives',
     'headlessDrupal.baseServices',
@@ -30,7 +30,6 @@ define([
     'ngResource',
     'ngCookies',
     'ngSanitize',
-    'ngDreamFactory',
     'ui.bootstrap',
     'duScroll',
   ]);

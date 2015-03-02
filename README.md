@@ -1,2 +1,2 @@
-# ng-headless-drupal
+# HeadlessDrupal
 An Angular build for headless Drupal

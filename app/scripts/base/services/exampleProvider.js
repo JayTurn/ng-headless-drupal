@@ -10,9 +10,8 @@
 
 define(['./module'], function(baseServices) {
   'use strict';
-  baseServices.provider('HdExampleProvider', function ($scope) {
+  baseServices.provider('HdExampleProvider', function () {
     console.log('baseService Provider');
-    console.log($scope);
     var hdExampleP = {};
 
     hdExampleP.example = function () {

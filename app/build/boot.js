@@ -43,7 +43,7 @@
       'angular',
       'scripts/app',
       'scripts/routeManager'
-    ], function(angular, wiggedy) {
+    ], function(angular, headlessDrupal) {
       angular.element(document).ready(function() {
         var $body = angular.element(document.getElementsByTagName('html')[0]);
         angular.bootstrap($body, ['headlessDrupal']);

@@ -3,6 +3,7 @@
  */
 define([
   './exampleFactory',
-  './exampleProvider'
+  './exampleProvider',
+  './page'
 ], function () {});
 
