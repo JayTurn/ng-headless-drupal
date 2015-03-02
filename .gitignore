@@ -1,0 +1,4 @@
+# Git Ignore
+app/index.html
+app/scripts/custom/modules/**
+app/scripts/custom/views/**
