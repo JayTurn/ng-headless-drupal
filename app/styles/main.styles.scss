@@ -1,0 +1,25 @@
+@import "compass";
+@import "breakpoint";
+@import "singularitygs";
+@import "compass/css3/box-shadow";
+
+/**
+ * Bootstrap Specific.
+ */
+$fa-font-path: "/bower_components/font-awesome/fonts/"; 
+$icon-font-path: "/bower_components/bootstrap-sass/vendor/assets/fonts/bootstrap/";
+@import 'font-awesome/scss/font-awesome.scss';
+@import 'bootstrap-sass/vendor/assets/stylesheets/bootstrap/bootstrap.scss';
+
+/**
+ * Make use of globbing to manage SASS scripts.
+ */
+@import "base/variables/**/*";
+@import "custom/variables/**/*";
+@import "base/abstractions/**/*";
+@import "custom/abstractions/**/*";
+@import "base/base/**/*";
+@import "base/components/**/*";
+@import "custom/base/**/*";
+@import "custom/components/**/*";
+

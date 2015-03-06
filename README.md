@@ -19,3 +19,6 @@ The following dependencies are required to use the HeadlessDrupal build.
 3. Run `npm install` to install the node modules dependencies.
 3. Run `bower install` to install the javascript library dependencies. 
 4. Run `bundle install` to install the ruby gem dependencies.
+
+## How is the code structured?
+
