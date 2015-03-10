@@ -59,8 +59,8 @@ module.exports = function (grunt) {
       livereload: {
         files: [
           'app/views/{,*//*}*.{html}',
-          '{.tmp,app}/styles/{,*//*}*.css',
-          '{.tmp,app}/scripts/{,*//*}*.js',
+          '{app/.tmp,app}/styles/{,*//*}*.css',
+          '{app/.tmp,app}/scripts/{,*//*}*.js',
           'app/images/{,*//*}*.{png,jpg,jpeg,gif,webp,svg}',
         ],
         options: {
@@ -95,14 +95,14 @@ module.exports = function (grunt) {
         files: [{
           dot: true,
           src: [
-            '/.tmp',
+            '/app/.tmp',
             'dist/*',
             '!/.git*',
             '!/Procfile'
           ]
         }]
       },
-      local: '/.tmp'
+      local: '/app/.tmp'
     },
 
     // Compile sass and css into tmp directory for development and dist 
@@ -110,8 +110,8 @@ module.exports = function (grunt) {
     compass: {
       options: {
         sassDir: 'app/styles',
-        cssDir: '.tmp/styles',
-        generatedImagesDir: '.tmp/images/generated',
+        cssDir: 'app/.tmp/styles',
+        generatedImagesDir: 'app/.tmp/images/generated',
         imagesDir: 'app/images',
         javascriptsDir: 'app/scripts',
         fontsDir: 'app/styles/fonts',
@@ -217,9 +217,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '.tmp/concat/scripts',
+          cwd: 'app/.tmp/concat/scripts',
           src: '*.js',
-          dest: '.tmp/concat/scripts'
+          dest: 'app/.tmp/concat/scripts'
         }]
       }
     },
@@ -249,7 +249,7 @@ module.exports = function (grunt) {
           ]
         }, {
           expand: true,
-          cwd: '.tmp/images',
+          cwd: 'app/.tmp/images',
           dest: 'dist/public/images',
           src: ['*']
         }, {
@@ -263,7 +263,7 @@ module.exports = function (grunt) {
       styles: {
         expand: true,
         cwd: 'app/styles',
-        dest: '.tmp/styles/',
+        dest: 'app/.tmp/styles/',
         src: '{,*/}*.css'
       }
     },
@@ -289,7 +289,7 @@ module.exports = function (grunt) {
      dist: {
        files: {
          'dist/public/styles/main.styles.css': [
-           '.tmp/styles/{,*/}*.css',
+           'app/.tmp/styles/{,*/}*.css',
            'app/styles/{,*/}*.css'
          ]
        }
