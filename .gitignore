@@ -8,3 +8,4 @@ app/scripts/custom/services/index.js
 app/scripts/custom/directives/index.js
 app/scripts/custom/modules/*
 app/views/base/page.html
+test/custom
