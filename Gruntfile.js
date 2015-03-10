@@ -311,33 +311,16 @@ module.exports = function (grunt) {
       return grunt.task.run(['build']);
     }
 
-    if (target === 'dev') {
-      return grunt.task.run(['clean:local','ngconstant:development', 'concurrent:local','watch']);
-    }
-
     grunt.task.run([
       'clean:local',
-      'ngconstant:local',
-      'concurrent:local',
-      'express:dev',
-      'open',
+      //'concurrent:local',
       'watch',
     ]);
   });
 
-  grunt.registerTask('test', function(target) {
-
-    if (target === 'client') {
-      return grunt.task.run([
-        'clean:server',
-        'concurrent:test',
-        'karma'
-      ]);
-    }
-
+  grunt.registerTask('test', function() {
     grunt.task.run([
-      'mochaTest',
-      'clean:server',
+      'clean:local',
       'concurrent:test',
       'karma'
     ]);
@@ -347,16 +330,14 @@ module.exports = function (grunt) {
     'clean:dist',
     'useminPrepare',
     'concurrent:dist',
-//    'autoprefixer',
     //'concat',
     //'ngmin',
     'copy:dist',
     //'cdnify',
     'cssmin',
-    'uglify',
     //'rev',
     //'usemin',
-    'ngconstant:production'
+    'uglify'
   ]);
 
   grunt.registerTask('default', [
