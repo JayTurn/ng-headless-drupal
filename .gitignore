@@ -2,3 +2,8 @@ npm-debug.log
 node_modules
 .sass-cache
 .tmp
+app/index.html
+app/scripts/custom/controllers/index.js
+app/scripts/custom/services/index.js
+app/scripts/custom/directives/index.js
+app/scripts/custom/modules/*
