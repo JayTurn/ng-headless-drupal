@@ -21,8 +21,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '/',
-          src: ['app/scripts/**/*.js', 'app/build/**/*.js'],
+          cwd: 'app',
+          src: ['scripts/**/*.js', 'build/**/*.js'],
+          //src: ['**/*.js'],
           dest: 'dist/public/'
         }]
       }
@@ -154,7 +155,7 @@ module.exports = function (grunt) {
     // Reads HTML usemin blocks and automatically concatinates, minifies and
     // revisions files.
     useminPrepare: {
-      html: ['app/views/index.html'],
+      html: ['app/index.html'],
       options: {
         dest: 'dist/public'
       }
@@ -162,8 +163,8 @@ module.exports = function (grunt) {
 
     // Performs rewrites based on rev and the useminPrepare configuration
     usemin: {
-      html: ['dist/views/{,*/}*.html'],
-      css: ['dist/public/styles/{,*/}*.css'],
+      html: ['dist/public/index.html'],
+      //css: ['dist/public/styles/*.css'],
       options: {
         assetsDirs: ['dist/public']
       }
@@ -234,6 +235,7 @@ module.exports = function (grunt) {
           dest: 'dist/public',
           src: [
             '*.{ico,png,txt}',
+            'index.html',
             '.htaccess',
             'bower_components/**/*',
             'images/**/*.{webp}',
@@ -252,12 +254,6 @@ module.exports = function (grunt) {
           cwd: 'app/.tmp/images',
           dest: 'dist/public/images',
           src: ['*']
-        }, {
-          expand: true,
-          dest: 'dist',
-          src: [
-            'package.json'
-          ]
         }]
       },
       styles: {
@@ -328,16 +324,16 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'copy:dist',
     'useminPrepare',
     'concurrent:dist',
     //'concat',
     //'ngmin',
-    'copy:dist',
     //'cdnify',
     'cssmin',
     //'rev',
-    //'usemin',
-    'uglify'
+    'uglify',
+    'usemin',
   ]);
 
   grunt.registerTask('default', [
