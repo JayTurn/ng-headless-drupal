@@ -1,0 +1,53 @@
+/**
+ * Karma boot file for RequireJS dependencies.
+ */
+
+// Build the array of test files to act as dependencies.
+var tests = [];
+for (var file in window.__karma__.files) {
+  if (window.__karma__.files.hasOwnProperty(file)) {
+    if (/.spec\.js$/.test(file)) {
+      tests.push(file);
+    }
+  }
+}
+
+requirejs.config({
+  appDir : '../..',
+  baseUrl : '../..',
+  paths : {
+    angular            : '../bower_components/angular/angular',
+    headlessBase       : './scripts/base',
+    headlessCustom     : './scripts/custom',
+    duScroll           : '../bower_components/angular-scroll/angular-scroll',
+    ngResource         : '../bower_components/angular-resource/angular-resource',
+    ngCookies          : '../bower_components/angular-cookies/angular-cookies',
+    ngSanitize         : '../bower_components/angular-sanitize/angular-sanitize',
+    ngRoute            : '../bower_components/angular-route/angular-route',
+    ngBootstrap        : '../bower_components/angular-bootstrap/ui-bootstrap-tpls',
+  },
+  shim : {
+    'angular'            : {'exports' : 'angular'},
+    'config'             : ['angular'],
+    'duScroll'           : ['angular'],
+    'ngResource'         : ['angular'],
+    'ngCookies'          : ['angular'],
+    'ngSanitize'         : ['angular'],
+    'ngRoute'            : ['angular'],
+    'ngBootstrap'        : ['angular'],
+  },
+  priority : 'angular',
+  deps : tests,
+  callback : window__karma__.start
+});
+
+require([
+  'angular',
+  'scripts/app',
+  'scripts/routeManager'
+], function(angular, headlessDrupal) {
+  angular.element(document).ready(function() {
+    var $body = angular.element(document.getElementsByTagName('html')[0]);
+    angular.bootstrap($body, ['headlessDrupal']);
+  });
+});

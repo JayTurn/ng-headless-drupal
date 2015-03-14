@@ -1,62 +1,80 @@
-/**
- *  Karma configuration
- *    Reference: http://karma-runner.github.io/0.10/config/configuration-file.html
- */
+// Karma configuration
+// Generated on Fri Mar 13 2015 06:49:43 GMT+1100 (AEDT)
 
 module.exports = function(config) {
   config.set({
-    // Base path to be used for the test runner.
+
+    // base path, that will be used to resolve files and exclude
     basePath: '',
 
-    // Defining frameworks to be used with testing.
-    frameworks: ['jasmine', 'ng-scenario'],
 
-    // Files to be loaded in the browser for testing.
+    // frameworks to use
+    frameworks: ['jasmine', 'requirejs'],
+
+
+    // list of files / patterns to load in the browser
     files: [
-      'app/bower_components/angular/angular.js',
-      'app/bower_components/angular-mocks/angular-mocks.js',
-      'app/bower_components/angular-resource/angular-resource.js',
-      'app/bower_components/angular-cookies/angular-cookies.js',
-      'app/bower_components/angular-sanitize/angular-sanitize.js',
-      'app/bower_components/angular-route/angular-route.js',
-      'app/scripts/*.js',
-      'app/scripts/**/*.js',
-      'app/scripts/**/**/*.js',
-      'test/base/**/*.js',
-      'test/custom/**/*.js',
-      'test/custom/**/**/*.js',
+      'app/build/boot.js',
+      {pattern: 'test/**/*.spec.js', included: false},
+      {pattern: 'test/**/**/*.spec.js', included: false},
+      {pattern: 'test/**/**/**/*.spec.js', included: false},
+      {pattern: 'app/bower_components/angular/angular.js', included: false},
+      {pattern: 'app/bower_components/angular-mocks/angular-mocks.js', included: false},
+      {pattern: 'app/bower_components/angular-resource/angular-resource.js', included: false},
+      {pattern: 'app/bower_components/angular-cookies/angular-cookies.js', included: false},
+      {pattern: 'app/bower_components/angular-sanitize/angular-sanitize.js', included: false},
+      {pattern: 'app/bower_components/angular-route/angular-route.js', included: false},
+      {pattern: 'app/scripts/*.js', included: false},
+      {pattern: 'app/scripts/**/*.js', included: false},
+      {pattern: 'app/scripts/**/**/*.js', included: false}
     ],
 
-    // Excluded files/patterns.
-    exclude: [],
 
-    // Define the web server port to be used for tests.
-    port: 8080,
+    // list of files to exclude
+    exclude: [
+      
+    ],
 
-    // Level of logging.
-    // LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
+
+    // test results reporter to use
+    // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
+    reporters: ['progress'],
+
+
+    // web server port
+    port: 9876,
+
+
+    // enable / disable colors in the output (reporters and logs)
+    colors: true,
+
+
+    // level of logging
+    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
     logLevel: config.LOG_INFO,
 
-    // Set the auto watching of files for live test running.
-    autoWatch: false,
+
+    // enable / disable watching file and executing tests whenever any file changes
+    autoWatch: true,
 
 
-    /** 
-     * Browsers to be used for testing, multiple can be used at once.
-     * Currently available: 
-     * - Chrome
-     * - ChromeCanary
-     * - Firefox
-     * - Opera
-     * - Safari (only Mac)
-     * - PhantomJS (requires local PhantomJS setup)
-     * - IE (only Windows)
-     */
-    browsers: ['Chrome'],
+    // Start these browsers, currently available:
+    // - Chrome
+    // - ChromeCanary
+    // - Firefox
+    // - Opera (has to be installed with `npm install karma-opera-launcher`)
+    // - Safari (only Mac; has to be installed with `npm install karma-safari-launcher`)
+    // - PhantomJS
+    // - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
+    browsers: ['Chrome', 'Firefox', 'Safari', 'PhantomJS'],
 
-    // Continous integration mode.
-    // If true, Karma will exit after completing a single run of tests.
+
+    // If browser does not capture in given timeout [ms], kill it
+    captureTimeout: 60000,
+
+
+    // Continuous Integration mode
+    // if true, it capture browsers, run tests and exit
     singleRun: false
   });
 };
-

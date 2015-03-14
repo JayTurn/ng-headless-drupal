@@ -5,26 +5,39 @@
  */
 (function( head ) {
   'use strict';
+  
+  // Karma test files to be loaded if we are running tests.
+  if (window.__karma__) {
+
+   var tests = [];
+   for (var file in window.__karma__.files) {
+     if (window.__karma__.files.hasOwnProperty(file)) {
+       if (/spec\.js$/.test(file)) {
+         tests.push(file);
+       }
+     }
+   }
+  }
+
   head.js(
     // Pre-load vendor libraries.
-    { require       : '../bower_components/requirejs/require.js',                   size: '82718' }
+    { require       : window.__karma__ ? 'base/app/bower_components/requirejs/require.js' : '../bower_components/requirejs/require.js',                   size: '82718' }
   )
   .ready('ALL', function() {
 
     require.config ({
-      appDir  : '../..',
-      baseUrl : '../..',
+      appDir  : window.__karma__ ? '/base/app' : '/',
+      baseUrl : window.__karma__ ? '/base/app' : '/',
       paths : {
-        angular            : '../bower_components/angular/angular',
+        angular            : './bower_components/angular/angular',
         headlessBase       : './scripts/base',
         headlessCustom     : './scripts/custom',
-        //config             : '../scripts/config',
-        duScroll           : '../bower_components/angular-scroll/angular-scroll',
-        ngResource         : '../bower_components/angular-resource/angular-resource',
-        ngCookies          : '../bower_components/angular-cookies/angular-cookies',
-        ngSanitize         : '../bower_components/angular-sanitize/angular-sanitize',
-        ngRoute            : '../bower_components/angular-route/angular-route',
-        ngBootstrap        : '../bower_components/angular-bootstrap/ui-bootstrap-tpls',
+        duScroll           : './bower_components/angular-scroll/angular-scroll',
+        ngResource         : './bower_components/angular-resource/angular-resource',
+        ngCookies          : './bower_components/angular-cookies/angular-cookies',
+        ngSanitize         : './bower_components/angular-sanitize/angular-sanitize',
+        ngRoute            : './bower_components/angular-route/angular-route',
+        ngBootstrap        : './bower_components/angular-bootstrap/ui-bootstrap-tpls',
       },
       shim : {
         'angular'            : {'exports' : 'angular'},
@@ -36,7 +49,9 @@
         'ngRoute'            : ['angular'],
         'ngBootstrap'        : ['angular'],
       },
-      priority : 'angular'
+      priority : 'angular',
+      deps : window.__karma__ ? tests : [],
+      callback : window.__karma__ ? window.__karma__.start : null
     });
 
     require([
