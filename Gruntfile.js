@@ -138,6 +138,22 @@ module.exports = function (grunt) {
       }
     },
 
+    // Concatenate the files included via requirejs for optimisation.
+    requirejs: {
+      compile: {
+        options: {
+          baseUrl: './app',
+          mainConfigFile: './app/build/boot.js',
+          out: './dist/scripts/main.js',
+          name: 'build/boot',
+          //optimize: 'uglify',
+          optimize: 'none',
+          findNestedDependencies: true,
+          //inlineText: true
+        }
+      }
+    },
+
     // Rename files for cache busting purposes.
     rev: {
       dist: {

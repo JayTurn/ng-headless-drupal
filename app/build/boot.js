@@ -3,11 +3,11 @@
  *  and initialize the application which also defines the routing.
  *
  */
-(function( head ) {
+(function( window, head ) {
   'use strict';
   
   // Karma test files to be loaded if we are running tests.
-  if (window.__karma__) {
+  if (typeof window !== 'undefined' && window.__karma__) {
 
    var tests = [];
    for (var file in window.__karma__.files) {
@@ -25,9 +25,7 @@
   )
   .ready('ALL', function() {
 
-    require.config ({
-      appDir  : window.__karma__ ? '/base/app' : '/',
-      baseUrl : window.__karma__ ? '/base/app' : '/',
+    require.config({
       paths : {
         angular            : './bower_components/angular/angular',
         headlessBase       : './scripts/base',
@@ -37,7 +35,7 @@
         ngCookies          : './bower_components/angular-cookies/angular-cookies',
         ngSanitize         : './bower_components/angular-sanitize/angular-sanitize',
         ngRoute            : './bower_components/angular-route/angular-route',
-        ngBootstrap        : './bower_components/angular-bootstrap/ui-bootstrap-tpls',
+        ngBootstrap        : './bower_components/angular-bootstrap/ui-bootstrap-tpls'
       },
       shim : {
         'angular'            : {'exports' : 'angular'},
@@ -47,9 +45,14 @@
         'ngCookies'          : ['angular'],
         'ngSanitize'         : ['angular'],
         'ngRoute'            : ['angular'],
-        'ngBootstrap'        : ['angular'],
+        'ngBootstrap'        : ['angular']
       },
-      priority : 'angular',
+      priority : 'angular'
+    });
+
+    require.config ({
+      appDir  : window.__karma__ ? '/base/app' : '/',
+      baseUrl : window.__karma__ ? '/base/app' : '/',
       deps : window.__karma__ ? tests : [],
       callback : window.__karma__ ? window.__karma__.start : null
     });
@@ -67,4 +70,4 @@
 
   });
 
-}( window.head ));
+}( window, head ));
