@@ -24,7 +24,7 @@
     { require       : window.__karma__ ? 'base/app/bower_components/requirejs/require.js' : '../bower_components/requirejs/require.js',                   size: '82718' }
   )
   .ready('ALL', function() {
-
+    console.log('Hello?');
     require.config({
       paths : {
         angular            : './bower_components/angular/angular',
@@ -63,6 +63,7 @@
       'scripts/routeManager'
     ], function(angular, headlessDrupal) {
       angular.element(document).ready(function() {
+        console.log('Angular loaded?');
         var $body = angular.element(document.getElementsByTagName('html')[0]);
         angular.bootstrap($body, ['headlessDrupal']);
       });

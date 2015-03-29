@@ -144,9 +144,14 @@ module.exports = function (grunt) {
         options: {
           baseUrl: './app',
           mainConfigFile: './app/build/boot.js',
-          out: './dist/scripts/main.js',
+          out: './dist/public/scripts/main.js',
           name: 'build/boot',
-          optimize: 'uglify',
+          paths: {
+            requireLib: 'bower_components/requirejs/require'
+          },
+          include: ['requireLib'],
+          //optimize: 'uglify',
+          optimize: 'none',
           findNestedDependencies: true,
         }
       }
@@ -346,7 +351,8 @@ module.exports = function (grunt) {
     //'cdnify',
     'cssmin',
     //'rev',
-    'uglify',
+    //'uglify',
+    'requirejs',
     'usemin',
   ]);
 
