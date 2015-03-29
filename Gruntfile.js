@@ -146,10 +146,8 @@ module.exports = function (grunt) {
           mainConfigFile: './app/build/boot.js',
           out: './dist/scripts/main.js',
           name: 'build/boot',
-          //optimize: 'uglify',
-          optimize: 'none',
+          optimize: 'uglify',
           findNestedDependencies: true,
-          //inlineText: true
         }
       }
     },
