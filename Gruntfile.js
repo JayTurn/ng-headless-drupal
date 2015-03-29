@@ -150,9 +150,12 @@ module.exports = function (grunt) {
             requireLib: 'bower_components/requirejs/require'
           },
           include: ['requireLib'],
-          //optimize: 'uglify',
-          optimize: 'none',
+          optimize: 'uglify',
+          //optimize: 'none',
           findNestedDependencies: true,
+          uglify: {
+            no_mangle: true,
+          }
         }
       }
     },
