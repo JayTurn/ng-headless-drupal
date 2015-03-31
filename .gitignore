@@ -9,5 +9,6 @@ app/scripts/custom/directives/index.js
 app/scripts/custom/modules/*
 app/views/base/page.html
 dist
+config/*.json
 test/unit/custom
 test/results.xml

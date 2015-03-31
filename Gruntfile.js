@@ -13,20 +13,21 @@ module.exports = function (grunt) {
 
   // Initialize the grunt config tasks.
   grunt.initConfig({
+    // Define Settings files to be imported.
+    localEnv: grunt.file.readJSON('config/local.settings.json'),
+    devEnv: grunt.file.readJSON('config/dev.settings.json'),
+    prodEnv: grunt.file.readJSON('config/prod.settings.json'),
 
-    uglify: {
+    // Define constants to be set per environment Angular.
+    ngconstant: {
       options: {
-        mangle: false
+        space: '  ',
+        wrap: '"use strict";\n\n {%= __ngModule %}',
+        name: 'config',
       },
-      dist: {
-        files: [{
-          expand: true,
-          cwd: 'app',
-          src: ['scripts/**/*.js', 'build/**/*.js'],
-          //src: ['**/*.js'],
-          dest: 'dist/public/'
-        }]
-      }
+      local: '<%= localEnv.constants.local %>',
+      dev: '<%= devEnv.constants.local %>',
+      prod: '<%= prodEnv.constants.local %>',
     },
     watch: {
       js: {

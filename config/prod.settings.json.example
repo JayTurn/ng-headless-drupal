@@ -1,0 +1,17 @@
+/**
+ * Production Environment specific settings for grunt-ng-constant.
+ */
+{
+  // Production Constants to be defined for the Angular application.
+  constants : {
+    prod: {
+      ENV: {
+        name: 'production',
+      },
+      DRUPAL_API: {
+        url : 'http://technocrat.com.au'
+      }
+
+    }
+  }
+}

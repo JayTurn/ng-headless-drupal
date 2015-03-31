@@ -1,0 +1,16 @@
+/**
+ * Local Environment specific settings for grunt-ng-constant.
+ */
+{
+  // Local Constants to be defined for the Angular application.
+  constants : {
+    local: {
+      ENV: {
+        name: 'local',
+      },
+      DRUPAL_API: {
+        url : 'http://local.technocrat.com.au'
+      }
+    }
+  }
+}
