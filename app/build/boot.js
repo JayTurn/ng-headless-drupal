@@ -28,9 +28,10 @@
     require.config({
       paths : {
         angular            : './bower_components/angular/angular',
+        config             : './scripts/config',
+        duScroll           : './bower_components/angular-scroll/angular-scroll',
         headlessBase       : './scripts/base',
         headlessCustom     : './scripts/custom',
-        duScroll           : './bower_components/angular-scroll/angular-scroll',
         ngResource         : './bower_components/angular-resource/angular-resource',
         ngCookies          : './bower_components/angular-cookies/angular-cookies',
         ngSanitize         : './bower_components/angular-sanitize/angular-sanitize',
@@ -63,7 +64,6 @@
       'scripts/routeManager'
     ], function(angular, headlessDrupal) {
       angular.element(document).ready(function() {
-        console.log('Angular loaded?');
         var $body = angular.element(document.getElementsByTagName('html')[0]);
         angular.bootstrap($body, ['headlessDrupal']);
       });

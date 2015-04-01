@@ -1,17 +1,17 @@
-/**
- * Development Environment specific settings for grunt-ng-constant.
- */
 {
-  // Development Constants to be defined for the Angular application.
-  constants : {
-    dev: {
-      ENV: {
-        name: 'develop',
-      },
-      DRUPAL_API: {
-        url : 'http://dev.technocrat.com.au'
+  "ngConstant": {
+    "options": {
+      "dest": "dist/scripts/config.js"
+    },
+    "constants" : {
+      "dev": {
+        "ENV": {
+          "name": "development"
+        },
+        "DRUPAL_URL": {
+          "url" : "http://local.technocrat.com.au"
+        }
       }
-
     }
   }
 }

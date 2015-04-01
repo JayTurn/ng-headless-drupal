@@ -3,6 +3,7 @@
  */
 define([
   'angular',
+  'config',
   'headlessBase/controllers/index',
   'headlessBase/directives/index',
   'headlessBase/services/index',
@@ -26,7 +27,7 @@ define([
     //'headlessDrupal.directives',
     //'headlessDrupal.services',
     'ngRoute',
-    //'config',
+    'config',
     'ngResource',
     'ngCookies',
     'ngSanitize',

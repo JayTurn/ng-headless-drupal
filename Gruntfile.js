@@ -14,7 +14,7 @@ module.exports = function (grunt) {
   // Initialize the grunt config tasks.
   grunt.initConfig({
     // Define Settings files to be imported.
-    localEnv: grunt.file.readJSON('config/local.settings.json'),
+    localEnv: grunt.file.readJSON('./config/local.settings.json'),
     devEnv: grunt.file.readJSON('config/dev.settings.json'),
     prodEnv: grunt.file.readJSON('config/prod.settings.json'),
 
@@ -25,10 +25,11 @@ module.exports = function (grunt) {
         wrap: '"use strict";\n\n {%= __ngModule %}',
         name: 'config',
       },
-      local: '<%= localEnv.constants.local %>',
-      dev: '<%= devEnv.constants.local %>',
-      prod: '<%= prodEnv.constants.local %>',
+      local: '<%= localEnv.ngConstant %>',
+      dev: '<%= devEnv.ngConstant %>',
+      prod: '<%= prodEnv.ngConstant %>',
     },
+
     watch: {
       js: {
         files: ['app/scripts/{,*/}*.js'],
@@ -104,7 +105,15 @@ module.exports = function (grunt) {
           ]
         }]
       },
-      local: '/app/.tmp'
+      local: {
+        files: [{
+          dot: true,
+          src: [
+            '/app/.tmp',
+            '/app/config.js'
+          ]
+        }],
+      }
     },
 
     // Compile sass and css into tmp directory for development and dist 
@@ -290,10 +299,12 @@ module.exports = function (grunt) {
     // Run concurrent tasks to speed up the grunt build processes.
     concurrent: {
       local: [
-        'compass:local'
+        'compass:local',
+        'ngconstant:local'
       ],
       test: [
-        'compass'
+        'compass',
+        'ngconstant:local'
       ],
       dist: [
         'compass:dist',
@@ -303,25 +314,25 @@ module.exports = function (grunt) {
       ]
     },
 
-   // CSS minification of distribution css files.
-   cssmin: {
-     dist: {
-       files: {
-         'dist/public/styles/main.styles.css': [
-           'app/.tmp/styles/{,*/}*.css',
-           'app/styles/{,*/}*.css'
-         ]
-       }
-     }
-   },
+    // CSS minification of distribution css files.
+    cssmin: {
+      dist: {
+        files: {
+          'dist/public/styles/main.styles.css': [
+            'app/.tmp/styles/{,*/}*.css',
+            'app/styles/{,*/}*.css'
+          ]
+        }
+      }
+    },
 
-   // Test settings
-   karma: {
-     unit: {
-       configFile: 'test/karma.conf.js',
-       singleRun: false
-     }
-   },
+    // Test settings
+    karma: {
+      unit: {
+        configFile: 'test/karma.conf.js',
+        singleRun: false
+      }
+    }
 
   });
 
@@ -332,7 +343,8 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:local',
-      //'concurrent:local',
+      //'ngconstant:local',
+      'concurrent:local',
       'watch',
     ]);
   });
@@ -340,6 +352,7 @@ module.exports = function (grunt) {
   grunt.registerTask('test', function() {
     grunt.task.run([
       'clean:local',
+      'ngconstant:local',
       'concurrent:test',
       'karma'
     ]);
@@ -347,6 +360,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'ngconstant:prod',
     'copy:dist',
     'useminPrepare',
     'concurrent:dist',
