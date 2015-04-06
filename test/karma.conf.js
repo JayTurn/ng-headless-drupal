@@ -24,7 +24,7 @@ module.exports = function(config) {
       { pattern : 'app/bower_components/angular-sanitize/angular-sanitize.js', included : false },
       { pattern : 'app/bower_components/angular-scenario/angular-scenario.js', included : false },
       { pattern : 'app/bower_components/angular-scroll/angular-scroll.js', included : false },
-      { pattern : 'app/scripts/{*,base/*,custom/*,**/**/*}.js', included : false },
+      { pattern : 'app/scripts/{*,core/*,custom/*,**/**/*}.js', included : false },
       { pattern : 'test/unit/{**/**/,**/**/**/}*.spec.js', included : false },
       'app/bower_components/headjs-notify/src/load.js',
       'app/build/boot.js'

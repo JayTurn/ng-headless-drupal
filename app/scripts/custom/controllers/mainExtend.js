@@ -1,13 +1,11 @@
 /**
  * Example Controller for the baseControllers.
  *
- * We load the ./module file in order to load inject baseControllers module.
- * 
- * If you are creating alternative folder structures, make sure you adjust the 
- * ./module path. Failing to do so will cause errors.
+ * We load the module file in order to inject the customControllers module.
+ * Using the headlessCore Path defined in boot.js
  *
  */
-define(['./module'], function(controllers) {
+define(['headlessCustom/controllers/module'], function(controllers) {
   'use strict';
   controllers.controller('MainExtendedController', function ($scope, $controller) {
     $scope.testExt = 'TEST MAIN EXTEND';

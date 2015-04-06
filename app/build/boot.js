@@ -30,7 +30,7 @@
         angular            : './bower_components/angular/angular',
         config             : './scripts/config',
         duScroll           : './bower_components/angular-scroll/angular-scroll',
-        headlessBase       : './scripts/base',
+        headlessCore       : './scripts/core',
         headlessCustom     : './scripts/custom',
         ngResource         : './bower_components/angular-resource/angular-resource',
         ngCookies          : './bower_components/angular-cookies/angular-cookies',
@@ -64,6 +64,7 @@
       'scripts/routeManager'
     ], function(angular, headlessDrupal) {
       angular.element(document).ready(function() {
+        console.log(headlessDrupal);
         var $body = angular.element(document.getElementsByTagName('html')[0]);
         angular.bootstrap($body, ['headlessDrupal']);
       });

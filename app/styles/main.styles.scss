@@ -14,9 +14,9 @@ $icon-font-path: "/bower_components/bootstrap-sass/vendor/assets/fonts/bootstrap
 /**
  * Make use of globbing to manage SASS scripts.
  */
-@import "base/variables/**/*";
+@import "core/variables/**/*";
 @import "custom/variables/**/*";
-@import "base/abstractions/**/*";
+@import "core/abstractions/**/*";
 @import "custom/abstractions/**/*";
 @import "base/base/**/*";
 @import "base/components/**/*";

@@ -4,25 +4,25 @@
 define([
   'angular',
   'config',
-  'headlessBase/controllers/index',
-  'headlessBase/directives/index',
-  'headlessBase/services/index',
+  'headlessCore/controllers/index',
+  'headlessCore/directives/index',
+  'headlessCore/services/index',
   'headlessCustom/controllers/index',
   'headlessCustom/directives/index',
   'headlessCustom/services/index',
-  //'config',
   'ngResource',
   'ngCookies',
   'ngSanitize',
   'ngBootstrap',
   'duScroll',
   'ngRoute'
-], function(angular, controllers, directives, services, config) {
+], function(angular) {
   'use strict';
+  console.log('headlessDrupalApp define');
   return angular.module('headlessDrupal', [
-    'headlessDrupal.baseControllers',
-    'headlessDrupal.baseDirectives',
-    'headlessDrupal.baseServices',
+    'headlessDrupal.coreControllers',
+    'headlessDrupal.coreDirectives',
+    'headlessDrupal.coreServices',
     'headlessDrupal.controllers',
     //'headlessDrupal.directives',
     //'headlessDrupal.services',

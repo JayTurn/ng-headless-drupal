@@ -10,22 +10,24 @@ define(['angular', 'scripts/app'], function(angular, app) {
     '$locationProvider',
     '$httpProvider',
     function($routeProvider, $locationProvider, $httpProvider) {
+      console.log('hitting config');
+      console.log(app);
     // Define the route handling.
     $routeProvider
       //.when('/login', {
-        //templateUrl: 'base/login',
+        //templateUrl: 'core/login',
         //controller: 'LoginCtrl'
       //})
       //.when('/:pagename', {
-        //templateUrl: 'base/page',
+        //templateUrl: 'core/page',
         //controller: 'PageCtrl'
       //})
       //.when('/admin/pages', {
-        //templateUrl: 'base/admin',
+        //templateUrl: 'core/admin',
         //controller: 'AdminPagesCtrl'
       //})
       .when('/', {
-        templateUrl: 'views/base/page',
+        templateUrl: 'views/core/page',
         controller: 'PageController'
       })
       .otherwise({
@@ -53,4 +55,3 @@ define(['angular', 'scripts/app'], function(angular, app) {
     }]);
   }]);
 });
-

@@ -14,8 +14,9 @@ module.exports = function (grunt) {
   // Initialize the grunt config tasks.
   grunt.initConfig({
     // Define Settings files to be imported.
-    localEnv: grunt.file.readJSON('./config/local.settings.json'),
     devEnv: grunt.file.readJSON('config/dev.settings.json'),
+    globalSettings: grunt.file.readJSON('./config/global.settings.json'),
+    localEnv: grunt.file.readJSON('./config/local.settings.json'),
     prodEnv: grunt.file.readJSON('config/prod.settings.json'),
 
     // Define constants to be set per environment Angular.
@@ -24,6 +25,7 @@ module.exports = function (grunt) {
         space: '  ',
         wrap: '"use strict";\n\n {%= __ngModule %}',
         name: 'config',
+        constants: '<%= globalSettings.ngConstant %>'
       },
       local: '<%= localEnv.ngConstant %>',
       dev: '<%= devEnv.ngConstant %>',
